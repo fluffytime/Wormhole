@@ -6,6 +6,7 @@ all: protos
 protos: auth/auth.pb.go
 
 auth/auth.pb.go: auth/auth.proto
-#protoc --go_out=plugins=grpc,Mshared/shared.proto=$(VID)/shared:. $<
-	protoc --go_out=. auth/auth.proto
+#	protoc --go_out=plugins=grpc,Mshared/shared.proto=$(VID)/shared:. $<
+#	protoc --go_out=. auth/auth.proto
+	protoc --go_out=plugins=grpc:. $<
 	go install ./auth/
